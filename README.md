@@ -16,7 +16,7 @@ This repository contains the code used for the experiments in the master's thesi
 
   	+  Train and test original StructFormer
 
-      ```python -m main --model structformer --cuda --pos_emb --save /path/to/your/saved_model --data ./data/penn/ --test_grammar --print```
+      ```python -m main.py --model structformer --cuda --pos_emb --save /path/to/your/saved_model --data ./data/penn/ --test_grammar --print```
         
         - For vanilla transformer use `--model transformer`
         - For In-parser StructFormer use `--model structformer_in_parser`
@@ -25,7 +25,7 @@ This repository contains the code used for the experiments in the master's thesi
 
   	+ Test Unsupervised Parsing only (For word-tokenizer)
     
-    ```python -m test_phrase_grammar --cuda --checkpoint /path/to/your/model --print```
+    ```python -m test_phrase_grammar.py --cuda --checkpoint /path/to/your/model --print```
     
         - For Subword Tokenization use `--subword <tokenizer_path>` e.g `omarmomen/ptb_filtered_lowcase_bpe_tokenizer_8`
 
