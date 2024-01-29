@@ -1,0 +1,14 @@
+__pycache__/
+env/
+exp_log/
+exp_notebooks/
+trained_models/
+do_pretrain_exp.sh
+*.ipynb_checkpoints/
+*.ipynb
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
