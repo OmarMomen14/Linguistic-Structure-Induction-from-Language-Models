@@ -1,3 +1,0 @@
-[submodule "lm_eval/datasets/biomedical"]
-	path = lm_eval/datasets/biomedical
-	url = https://github.com/bigscience-workshop/biomedical
