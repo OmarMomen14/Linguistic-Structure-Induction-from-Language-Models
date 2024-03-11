@@ -1,0 +1,154 @@
+Testing self-consistency of StructFormer using model self_cons_saved_models/26548.pt and model self_cons_saved_models/1111.pt
+Loading model 1...
+Loading model 2...
+Loading PTB dataset...
+Evaluating...
+=========================================================================================
+Constituency parsing performance:
+Mean Prec: 0.7293, Mean Reca: 0.7293, Mean F1: 0.7293
+-----------------------------------------------------------------------------------------
+Dependency parsing performance:
+Conllu Style:
+DDA: 0.463
+UDA: 0.589
+=========================================================================================
+Testing self-consistency of StructFormer using model self_cons_saved_models/26548.pt and model self_cons_saved_models/13564.pt
+Loading model 1...
+Loading model 2...
+Loading PTB dataset...
+Evaluating...
+=========================================================================================
+Constituency parsing performance:
+Mean Prec: 0.7661, Mean Reca: 0.7661, Mean F1: 0.7661
+-----------------------------------------------------------------------------------------
+Dependency parsing performance:
+Conllu Style:
+DDA: 0.680
+UDA: 0.744
+=========================================================================================
+Testing self-consistency of StructFormer using model self_cons_saved_models/26548.pt and model self_cons_saved_models/14527.pt
+Loading model 1...
+Loading model 2...
+Loading PTB dataset...
+Evaluating...
+=========================================================================================
+Constituency parsing performance:
+Mean Prec: 0.6247, Mean Reca: 0.6247, Mean F1: 0.6247
+-----------------------------------------------------------------------------------------
+Dependency parsing performance:
+Conllu Style:
+DDA: 0.506
+UDA: 0.624
+=========================================================================================
+Testing self-consistency of StructFormer using model self_cons_saved_models/26548.pt and model self_cons_saved_models/26548.pt
+Loading model 1...
+Loading model 2...
+Loading PTB dataset...
+Evaluating...
+=========================================================================================
+Constituency parsing performance:
+Mean Prec: 0.9830, Mean Reca: 0.9830, Mean F1: 0.9830
+-----------------------------------------------------------------------------------------
+Dependency parsing performance:
+Conllu Style:
+DDA: 1.000
+UDA: 1.000
+=========================================================================================
+Testing self-consistency of StructFormer using model self_cons_saved_models/26548.pt and model self_cons_saved_models/35489.pt
+Loading model 1...
+Loading model 2...
+Loading PTB dataset...
+Evaluating...
+=========================================================================================
+Constituency parsing performance:
+Mean Prec: 0.6588, Mean Reca: 0.6588, Mean F1: 0.6588
+-----------------------------------------------------------------------------------------
+Dependency parsing performance:
+Conllu Style:
+DDA: 0.499
+UDA: 0.615
+=========================================================================================
+Testing self-consistency of StructFormer using model self_cons_saved_models/26548.pt and model self_cons_saved_models/48651.pt
+Loading model 1...
+Loading model 2...
+Loading PTB dataset...
+Evaluating...
+=========================================================================================
+Constituency parsing performance:
+Mean Prec: 0.7114, Mean Reca: 0.7114, Mean F1: 0.7114
+-----------------------------------------------------------------------------------------
+Dependency parsing performance:
+Conllu Style:
+DDA: 0.451
+UDA: 0.584
+=========================================================================================
+Testing self-consistency of StructFormer using model self_cons_saved_models/26548.pt and model self_cons_saved_models/56872.pt
+Loading model 1...
+Loading model 2...
+Loading PTB dataset...
+Evaluating...
+=========================================================================================
+Constituency parsing performance:
+Mean Prec: 0.7691, Mean Reca: 0.7691, Mean F1: 0.7691
+-----------------------------------------------------------------------------------------
+Dependency parsing performance:
+Conllu Style:
+DDA: 0.633
+UDA: 0.705
+=========================================================================================
+Testing self-consistency of StructFormer using model self_cons_saved_models/26548.pt and model self_cons_saved_models/68749.pt
+Loading model 1...
+Loading model 2...
+Loading PTB dataset...
+Evaluating...
+=========================================================================================
+Constituency parsing performance:
+Mean Prec: 0.7285, Mean Reca: 0.7285, Mean F1: 0.7285
+-----------------------------------------------------------------------------------------
+Dependency parsing performance:
+Conllu Style:
+DDA: 0.638
+UDA: 0.704
+=========================================================================================
+Testing self-consistency of StructFormer using model self_cons_saved_models/26548.pt and model self_cons_saved_models/78796.pt
+Loading model 1...
+Loading model 2...
+Loading PTB dataset...
+Evaluating...
+=========================================================================================
+Constituency parsing performance:
+Mean Prec: 0.7624, Mean Reca: 0.7624, Mean F1: 0.7624
+-----------------------------------------------------------------------------------------
+Dependency parsing performance:
+Conllu Style:
+DDA: 0.639
+UDA: 0.709
+=========================================================================================
+Testing self-consistency of StructFormer using model self_cons_saved_models/26548.pt and model self_cons_saved_models/87546.pt
+Loading model 1...
+Loading model 2...
+Loading PTB dataset...
+Evaluating...
+=========================================================================================
+Constituency parsing performance:
+Mean Prec: 0.7826, Mean Reca: 0.7826, Mean F1: 0.7826
+-----------------------------------------------------------------------------------------
+Dependency parsing performance:
+Conllu Style:
+DDA: 0.684
+UDA: 0.745
+=========================================================================================
+Testing self-consistency of StructFormer using model self_cons_saved_models/26548.pt and model self_cons_saved_models/97865.pt
+Loading model 1...
+Loading model 2...
+Loading PTB dataset...
+Evaluating...
+=========================================================================================
+Constituency parsing performance:
+Mean Prec: 0.7165, Mean Reca: 0.7165, Mean F1: 0.7165
+-----------------------------------------------------------------------------------------
+Dependency parsing performance:
+Conllu Style:
+DDA: 0.426
+UDA: 0.563
+=========================================================================================

@@ -1,6 +1,6 @@
-# Linguistic Structure Induction from Language Models
+# Master's Thesis: Linguistic Structure Induction from Language Models
 
-This repository contains the code used for the experiments in the master's thesis "Linguistic Structure Induction from Language Models" 
+This repository contains the experiment codes for the master's thesis "Linguistic Structure Induction from Language Models".
 
 ## Installation
 
@@ -8,7 +8,7 @@ This repository contains the code used for the experiments in the master's thesi
 
 ## Usage
 
-1. Download PTB constituency annotations data (for constituency evaluation) and place them in the nltk directory at system root.
+1. Download PTB constituency annotations data (for constituency evaluation) and place them in the nltk directory at the system root.
 
 2. Download your desired PTB dependency annotations data e.g stanford,conll,conll-u (for dependency evaluation) and place them in the `data/ptb` dir.
 
@@ -30,5 +30,8 @@ This repository contains the code used for the experiments in the master's thesi
         - For Subword Tokenization use `--subword <tokenizer_path>` e.g `omarmomen/ptb_filtered_lowcase_bpe_tokenizer_8`
 
 ## Acknowledgements
+
 Much of the project code is based on the following repository:  
+
 - [StructFormer](https://github.com/google-research/google-research/tree/master/structformer) 
+- [BabyLM Eval](https://github.com/babylm/evaluation-pipeline) 

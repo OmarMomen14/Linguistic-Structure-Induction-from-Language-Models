@@ -230,6 +230,9 @@ def test(parser, corpus, device, prt=False, gap=0):
   print('Conll-U Style:')
   tree_utils.evald(dtree_list, './data/ptb/test.conllu', directed=True)
   tree_utils.evald(dtree_list, './data/ptb/test.conllu', directed=False)
+  print('X Style:')
+  tree_utils.evald(dtree_list, './data/ptb/test.conllu', directed=True)
+  tree_utils.evald(dtree_list, './data/ptb/test.conllu', directed=False)
 
   return mean(f1_list)
 
@@ -242,6 +245,8 @@ def test_subword(parser, corpus, device, prt=False, gap=0):
   reca_list = []
   f1_list = []
   subword_reca_list = []
+  n_subword_const_list = []
+  n_total_const_list = []
   dtree_list = []
 
   
@@ -277,12 +282,14 @@ def test_subword(parser, corpus, device, prt=False, gap=0):
       if not model_out:
         prec = 1.
     f1 = 2 * prec * reca / (prec + reca + 1e-8)
-    subword_reca = tree_utils.recall_subword_constituents(model_out, std_out, sen)
+    subword_reca, n_subword_const = tree_utils.recall_subword_constituents(model_out, std_out, sen)
     
     prec_list.append(prec)
     reca_list.append(reca)
     f1_list.append(f1)
     subword_reca_list.append(subword_reca)
+    n_subword_const_list.append(n_subword_const)
+    n_total_const_list.append(len(std_out))
     
     
     p_head = p_dict['head'][0].detach().cpu().numpy()
@@ -311,7 +318,8 @@ def test_subword(parser, corpus, device, prt=False, gap=0):
   print('Constituency parsing performance:')
   print('Mean Prec: %.4f, Mean Reca: %.4f, Mean F1: %.4f, Mean Subword_Reca: %.4f' %
         (mean(prec_list), mean(reca_list), mean(f1_list), mean(subword_reca_list)))
-  
+  print(f'n_subword_const: {numpy.sum(n_subword_const_list)}, n_total_const: {numpy.sum(n_total_const_list)}')
+  print(f'subword_const ratio:{numpy.sum(n_subword_const_list)/numpy.sum(n_total_const_list)}')
   print('-' * 89)
 
   # print('Dependency parsing performance:')

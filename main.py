@@ -141,7 +141,7 @@ def model_load(fn):
     model, criterion, optimizer, scheduler = torch.load(f)
 
 print('Loading dataset...')
-if args.subword:
+if args.subword and args.data == 'data/penn/':
   print('Using subword tokenizer...')
   ptb_corpus = data_ptb_subword.SubWord_Corpus(args.subword)
   
@@ -151,7 +151,18 @@ if args.subword:
 
   val_data = batchify(ptb_corpus.valid, args.batch_size, device, pad=pad_token)
   test_data = batchify(ptb_corpus.test, args.batch_size, device, pad=pad_token)
+
+elif args.data != 'data/penn/':
+  print('Using subword tokenizer on a custom dataset...')
+  ptb_corpus = data_ptb_subword.SubWord_Corpus_Custom(args.subword, args.data)
   
+  pad_token = ptb_corpus.tokenizer.pad_token_id
+  mask_token = ptb_corpus.tokenizer.mask_token_id
+  unk_token = ptb_corpus.tokenizer.unk_token_id
+
+  val_data = batchify(ptb_corpus.valid, args.batch_size, device, pad=pad_token)
+  test_data = batchify(ptb_corpus.test, args.batch_size, device, pad=pad_token)
+
 else:
   corpus = data_penn.Corpus(args.data, thd=args.dict_thd)
   ptb_corpus = data_ptb.Corpus(args.data)

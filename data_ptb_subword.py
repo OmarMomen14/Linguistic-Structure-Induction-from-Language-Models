@@ -7,6 +7,8 @@ from nltk.corpus import ptb
 from nltk.tokenize.treebank import TreebankWordDetokenizer
 from transformers import AutoTokenizer
 
+from tqdm import tqdm
+
 WORD_TAGS = [
     'CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'JJ', 'JJR', 'JJS', 'LS', 'MD', 'NN',
     'NNS', 'NNP', 'NNPS', 'PDT', 'POS', 'PRP', 'PRP$', 'RB', 'RBR', 'RBS', 'RP',
@@ -22,6 +24,8 @@ PUNCTUATION_WORDS = [
     '.', ',', ':', '-LRB-', '-RRB-', '\'\'', '``', '--', ';', '-', '?', '!',
     '...', '-LCB-', '-RCB-'
 ]
+
+
 
 
 class SubWord_Corpus(object):
@@ -222,4 +226,54 @@ class SubWord_Corpus(object):
                 raise Exception(f'Error in merge_strings_in_tree {e}')
             trees.append(tokenized_tree)
             nltk_trees.append(sen_tree)
+    return sens_idx, sens, trees, nltk_trees
+
+
+
+class SubWord_Corpus_Custom(object):
+
+  def __init__(self, tokenizer_name, data_root):
+    """Initialization.
+
+    Args:
+      tokenizer_name: path to tokenizer
+    Raises:
+      Exception: missing dictionary
+    """
+    
+    try:
+      self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
+    except:
+      raise ValueError('Tokenizer does not exist')
+
+    # TODO: add trees to the corpus
+    
+    self.train, self.train_sens, self.train_trees, self.train_nltktrees \
+        = self.tokenize(os.path.join(data_root, 'train.txt'))
+    self.valid, self.valid_sens, self.valid_trees, self.valid_nltktress \
+        = self.tokenize(os.path.join(data_root, 'valid.txt'))
+    self.test, self.test_sens, self.test_trees, self.test_nltktrees \
+        = self.tokenize(os.path.join(data_root, 'test.txt'))
+
+  def tokenize(self, data_path):
+      
+    sens_idx = []
+    sens = []
+    trees = []
+    nltk_trees = []
+    
+    
+    print("Tokenizing data...")
+    for line in tqdm(open(data_path, 'r', encoding='utf-8')):
+        # get a sentence in a list form from an nltk tree (after ptb detokenization and subword tokenization)
+        sen = line.strip()
+        tokens = self.tokenizer.tokenize(sen, add_special_tokens=False, truncation=True, max_length=500)
+        sens.append(sen)
+        sens_idx.append(self.tokenizer.convert_tokens_to_ids(tokens))
+        
+        # TODO: get const. trees
+        
+        trees.append([])
+        nltk_trees.append([])
+        
     return sens_idx, sens, trees, nltk_trees

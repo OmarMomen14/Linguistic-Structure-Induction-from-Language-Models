@@ -327,6 +327,6 @@ def recall_subword_constituents(model_out, std_out, sen):
         correct_subword_constituents += 1
   
   if total_subword_constituents == 0:
-    return 1.0
+    return 1.0, total_subword_constituents
   else:
-    return correct_subword_constituents/total_subword_constituents
+    return (correct_subword_constituents/total_subword_constituents), total_subword_constituents

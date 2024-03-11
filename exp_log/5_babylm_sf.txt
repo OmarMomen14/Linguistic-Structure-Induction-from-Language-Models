@@ -1,0 +1,79 @@
+Loading dataset...
+Using subword tokenizer on a custom dataset...
+Tokenizing data...
+Tokenizing data...
+Tokenizing data...
+Number of tokens:  16000
+Args: Namespace(data='data/babylm_10M', dict_thd=1, model='structformer', nhid=512, nlayers=8, front_layers=2, rear_layers=6, subword='omarmomen/babylm_bpe_tokenizer_16k', n_parser_layers=3, nheads=8, conv_size=9, lr=0.0003, clip=0.25, epochs=100, batch_size=2048, dropout=0.1, dropatt=0, mask_rate=0.3, relative_bias=False, pos_emb=True, weight_act='softmax', relations='head,child', seed=1111, nonmono=5, cuda=True, log_interval=100, save='trained_models/babylm_1111_sf.pt', wdecay=1.2e-06, resume='', test_grammar=False, tied=True)
+Model total parameters: 41552132
+Model architecture: StructFormer(
+  (drop): Dropout(p=0.1, inplace=False)
+  (emb): Embedding(16000, 512)
+  (pos_emb): Embedding(500, 512)
+  (layers): ModuleList(
+    (0-7): 8 x TransformerLayer(
+      (self_attn): MultiheadAttention(
+        (drop): Dropout(p=0, inplace=False)
+        (q_proj): Linear(in_features=512, out_features=512, bias=True)
+        (k_proj): Linear(in_features=512, out_features=512, bias=True)
+        (v_proj): Linear(in_features=512, out_features=512, bias=True)
+        (out_proj): Linear(in_features=512, out_features=512, bias=True)
+      )
+      (feedforward): Sequential(
+        (0): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        (1): Linear(in_features=512, out_features=2048, bias=True)
+        (2): LeakyReLU(negative_slope=0.01)
+        (3): Dropout(p=0.1, inplace=False)
+        (4): Linear(in_features=2048, out_features=512, bias=True)
+      )
+      (norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+      (dropout1): Dropout(p=0.1, inplace=False)
+      (dropout2): Dropout(p=0.1, inplace=False)
+    )
+  )
+  (norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (output_layer): Linear(in_features=512, out_features=16000, bias=True)
+  (parser_layers): ModuleList(
+    (0-2): 3 x Sequential(
+      (0): Conv1d(
+        (conv): Conv1d(512, 512, kernel_size=(9,), stride=(1,), padding=(4,))
+      )
+      (1): LayerNorm((512,), eps=1e-05, elementwise_affine=False)
+      (2): Tanh()
+    )
+  )
+  (distance_ff): Sequential(
+    (0): Conv1d(
+      (conv): Conv1d(512, 512, kernel_size=(2,), stride=(1,), padding=(1,))
+    )
+    (1): LayerNorm((512,), eps=1e-05, elementwise_affine=False)
+    (2): Tanh()
+    (3): Linear(in_features=512, out_features=1, bias=True)
+  )
+  (height_ff): Sequential(
+    (0): Linear(in_features=512, out_features=512, bias=True)
+    (1): LayerNorm((512,), eps=1e-05, elementwise_affine=False)
+    (2): Tanh()
+    (3): Linear(in_features=512, out_features=1, bias=True)
+  )
+)
+| epoch   1 |   100/ 6686 batches | lr 0.00030 | ms/batch 67.30 | loss  7.85 | ppl  2577.36 
+| epoch   1 |   200/ 6686 batches | lr 0.00030 | ms/batch 51.03 | loss  7.15 | ppl  1268.09 
+| epoch   1 |   300/ 6686 batches | lr 0.00030 | ms/batch 52.33 | loss  6.95 | ppl  1040.40 
+| epoch   1 |   400/ 6686 batches | lr 0.00030 | ms/batch 50.77 | loss  6.85 | ppl   941.08 
+| epoch   1 |   500/ 6686 batches | lr 0.00030 | ms/batch 49.89 | loss  6.79 | ppl   892.82 
+| epoch   1 |   600/ 6686 batches | lr 0.00030 | ms/batch 52.11 | loss  6.60 | ppl   737.73 
+| epoch   1 |   700/ 6686 batches | lr 0.00030 | ms/batch 49.20 | loss  6.57 | ppl   710.54 
+| epoch   1 |   800/ 6686 batches | lr 0.00030 | ms/batch 50.87 | loss  6.45 | ppl   629.91 
+| epoch   1 |   900/ 6686 batches | lr 0.00030 | ms/batch 48.46 | loss  6.23 | ppl   507.03 
+| epoch   1 |  1000/ 6686 batches | lr 0.00030 | ms/batch 53.39 | loss  6.32 | ppl   554.60 
+| epoch   1 |  1100/ 6686 batches | lr 0.00030 | ms/batch 50.61 | loss  6.13 | ppl   459.32 
+| epoch   1 |  1200/ 6686 batches | lr 0.00030 | ms/batch 50.81 | loss  6.15 | ppl   469.27 
+| epoch   1 |  1300/ 6686 batches | lr 0.00030 | ms/batch 50.73 | loss  5.94 | ppl   378.84 
+| epoch   1 |  1400/ 6686 batches | lr 0.00030 | ms/batch 50.61 | loss  5.85 | ppl   345.70 
+| epoch   1 |  1500/ 6686 batches | lr 0.00030 | ms/batch 49.41 | loss  5.83 | ppl   340.81 
+| epoch   1 |  1600/ 6686 batches | lr 0.00030 | ms/batch 53.62 | loss  5.84 | ppl   344.43 
+| epoch   1 |  1700/ 6686 batches | lr 0.00030 | ms/batch 49.04 | loss  5.69 | ppl   297.34 
+| epoch   1 |  1800/ 6686 batches | lr 0.00030 | ms/batch 55.50 | loss  5.71 | ppl   300.70 
+-----------------------------------------------------------------------------------------
+Exiting from training early
